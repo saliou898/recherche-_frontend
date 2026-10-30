@@ -52,3 +52,66 @@ console.log(n1,n3);
 const {email="saliou@gmail.com"}=etudiant
 console.log(email);
 console.log(`Bonjour je m'appel ${prenom} ${nom} ,je en ${classe} `);
+
+// Exercice 3
+const groupeA = ["Awa", "Moussa", "Fatou"];
+const groupeB = ["Ibra", "Mariama"];
+const etudiantBase = { nom: "Diop", filiere: "IAGE", niveau: "L2" };
+
+// 
+const tousLesEtudiants=[...groupeA,...groupeB]
+console.log(tousLesEtudiants);
+
+// 
+const copieGroupeA=[...groupeA,"Cheich"]
+console.log(groupeA);
+console.log(copieGroupeA);
+
+// 
+ const {nom:nomEtu,filiere:filiereEtu,niveau:niv,age=22,ville="Dakar"}=etudiantBase
+ console.log(ville);
+
+// 
+const {nom:n,filiere:f,niveau="L3"}=etudiantBase
+console.log(niveau);
+
+//  Exerice N°4
+const foncN=(...nombre)=> {
+    let som=0
+    for(let i=0;i<nombre.length;i++){
+        som+=nombre[i]
+    }
+    return som
+}
+console.log(foncN(1,3));
+console.log(foncN(1,3,6));
+console.log(foncN(1,3,6,5,9));
+
+// 
+
+// 
+const afficherPremierEtAutres=(premier, ...autres)=>{
+    let autre=[]
+    for(let i=0;i<autres.length;i++){
+        autre.push(autres[i])
+    }
+    return {premier:premier,autres:autre}
+
+}
+console.log(afficherPremierEtAutres('Moi',"Lui","Elle","Et les autres"));
+
+// 
+const creerFiche=(nom,filiere,...competences)=>{
+    let cmp=[]
+    for(let i=0;i<competences.length;i++){
+        cmp.push(competences[i])
+    }
+    return {nom:nom,filiere:filiere,competences:cmp }
+
+}
+console.log(creerFiche('Saliou','LG',"Tteste,",'teste',3));
+
+// 
+console.log("Car elle permet de recuperer tout les arguments restant dans un seul tableau ");
+
+// Exercice N°5
