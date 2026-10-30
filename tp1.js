@@ -115,3 +115,54 @@ console.log(creerFiche('Saliou','LG',"Tteste,",'teste',3));
 console.log("Car elle permet de recuperer tout les arguments restant dans un seul tableau ");
 
 // Exercice N°5
+const etudiantL2 = {
+ id: 104,
+ prenom: "Aminata",
+ nom: "Fall",
+ notes: [13, 16, 12],
+ filiere: "IAGE"
+};
+
+// 
+const extraireIdentite=(etudiant)=>{
+    const {nom,prenom,filiere}= etudiantL2
+    return {
+        nom,prenom,filiere
+    }
+}
+console.log(extraireIdentite(etudiantL2));
+
+// 
+const calculerMoyenneNotes=(notes)=>{
+    if (notes.length<=0){
+        return 0
+    }else{
+        let moy=0
+        let som=0
+        for(let i=0;i<notes.length;i++){
+            som+=notes[i]
+        }
+        moy=som/notes.length
+        return moy
+    }
+    
+}
+console.log(calculerMoyenneNotes([10,10]));
+
+// 
+const  ajouterNote=(etudiant, nouvelleNote)=>{
+    return{
+        ...etudiant,notes:[...etudiant.notes,nouvelleNote]
+    }
+}
+console.log(ajouterNote(etudiantL2,18));
+
+// 
+ const creerResume=(etudiant, ...options) =>{
+    const id=extraireIdentite(etudiantL2)
+    const moys=calculerMoyenneNotes(etudiant.notes)
+
+
+    return{id,moys,options}
+ }
+ console.log(creerResume(etudiantL2,'Teste'));
